@@ -1,5 +1,8 @@
 import Image from "next/image";
 import Box  from "@mui/material/Box";
+import { NextPage } from "next";
+
+import MainView from "@/views/home";
 
 async function getCardData() {
   // Vars
@@ -12,12 +15,14 @@ async function getCardData() {
   return res.json()
 }
 
-export default async function Home() {
+const Home = async() => {
   const data = await getCardData()
 
   console.log(data)
 
   return (
-    <Box sx={{width:'100%',height:'100%'}}>{data.data[0].name}</Box>
+    <MainView />
   );
 }
+
+export default Home
