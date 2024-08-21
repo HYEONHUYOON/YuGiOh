@@ -88,11 +88,11 @@ body {
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
-      to bottom,
+      to left,
       transparent,
-      rgb(var(--background-end-rgb))
+      #0073ff7e
     )
-    rgb(var(--background-start-rgb));
+    #0073ff32;
 }
 
 a {
