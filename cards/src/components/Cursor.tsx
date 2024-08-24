@@ -5,13 +5,12 @@ import { useEffect } from "react"
 import { gsap } from 'gsap'
 import Image from "next/image"
 
-import cardIcon from '../assets/icons/yu_gi_oh_card_icon.png'
+import CardBackSide from '../assets/images/CardBackSide.jpg'
 
 const Cursor = () => {
     useEffect(() => {
         const cursor = document.getElementById('custom-cursor')
         const links = document.querySelectorAll('a')
-        const cursorText = document.querySelector('.cursor-text') as HTMLElement;
 
         const onMouseMove  = (e:globalThis.MouseEvent) =>{
             const {clientX,clientY} = e;
@@ -44,7 +43,7 @@ const Cursor = () => {
     return(
         <div id='custom-cursor' className="custom-cursor">
             <span className="cursor-text">
-                <Image src={cardIcon} alt="Cursor Icon" style={{width:'30px',height:'30px'}}/>
+                <Image src={CardBackSide} alt="Cursor Icon" style={{width:'23.6px',height:'34.4px'}}/>
             </span>
         </div>
     )

@@ -40,7 +40,9 @@
   --card-border-rgb: 131, 134, 135;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Song+Myung&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap'); */
+
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -127,7 +129,6 @@ body {
   height: 30px;
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: difference;
   padding: 10px;
   display: flex;
   justify-content: center;
@@ -142,16 +143,19 @@ body {
 
 }
 
+#CardNameText-En{
+  font-family: 'Small_Caps_1';
+  font-weight: 600;
+}
+
 #CardNameText{
   /* font-family: 'Small_Caps_1'; */
   font-family: "Song Myung", serif;
-  font-weight: 600;
 }
 
 #CardDescText{
   /* font-family: 'LT_Italic';   */
   font-family: "Song Myung", serif;
-  font-weight: 600;
 }
 
 #CardTypeText{
@@ -176,12 +180,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to left,
-      transparent,
-      #0475ff
-    )
-    #0073ff32;
+  background: radial-gradient(circle, rgb(97 162 204), rgb(32 26 91));
 }
 
 a {
