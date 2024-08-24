@@ -100,14 +100,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  /* background-color: white; */
 }
 
 .cursor-text{
   font-size: 5px;
   font-weight: 900;
   letter-spacing: 1px;
-  display: none;
+
 }
 
 body {
