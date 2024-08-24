@@ -5,7 +5,7 @@ import { useEffect } from "react"
 import { gsap } from 'gsap'
 import Image from "next/image"
 
-import cardIcon from '../assets/icon/yu_gi_oh_card_icon.png'
+import cardIcon from '../assets/icons/yu_gi_oh_card_icon.png'
 
 const Cursor = () => {
     useEffect(() => {
