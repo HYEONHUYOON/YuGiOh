@@ -73,6 +73,37 @@
   }
 }
 
+@font-face {
+  font-family: 'Stone_Serif_Semibold';
+  src: url('../assets/fonts/Stone_Serif_Semibold.ttf');
+}
+
+@font-face {
+  font-family: 'LT_Italic';
+  src: url('../assets/fonts/LT_Italic.ttf');
+}
+
+@font-face {
+  font-family: 'Caps_Bold';
+  src: url('../assets/fonts/Caps_Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Matrix_Book';
+  src: url('../assets/fonts/Matrix_Book.ttf');
+}
+
+@font-face {
+  font-family: 'Small_Caps_1';
+  src: url('../assets/fonts/Small_Caps_1.ttf');
+}
+
+@font-face {
+  font-family: 'Small_Caps_2';
+  src: url('../assets/fonts/Small_Caps_2.ttf');
+}
+
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -91,8 +122,7 @@ body {
   top: 0;
   left: 0;
   width: 20px;
-  height: 20px;
-  border-radius: 50%;
+  height: 30px;
   pointer-events: none;
   z-index: 9999;
   mix-blend-mode: difference;
@@ -100,7 +130,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: white; */
+  background-color: white;
 }
 
 .cursor-text{
@@ -108,6 +138,33 @@ body {
   font-weight: 900;
   letter-spacing: 1px;
 
+}
+
+#CardNameText{
+  font-family: 'Small_Caps_1';
+}
+
+#CardDescText{
+  font-family: 'LT_Italic';  
+}
+
+#CardTypeText{
+  font-family: 'Caps_Bold';
+}
+
+.CardPrism{
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255,219,112,0.8) 45%,
+    rgba(132,50,255,0.6) 50%,
+    transparent 54%
+  );
+  filter: opacity(0);
+  mix-blend-mode: color-dodge;
+  background-size: 150% 150%;
+  background-position: 100%;
+  transition: all 0.1;
 }
 
 body {

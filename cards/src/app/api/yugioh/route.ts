@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 
 export async function GET(request: Request) {
   try {
-    const response = await fetch('https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Dark Magician');
+    const response = await fetch('https://db.ygoprodeck.com/api/v7/cardinfo.php?name=Blue-Eyes White Dragon');
     const result = await response.json();
 
     // 여기에 NextResponse를 반환합니다.

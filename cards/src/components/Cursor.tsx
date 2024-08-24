@@ -39,12 +39,12 @@ const Cursor = () => {
             link.addEventListener('mouseenter', onMouseEnter)
             link.addEventListener('mouseleave', onMouseLeave)
         })
-    })
+    },[])
 
     return(
         <div id='custom-cursor' className="custom-cursor">
             <span className="cursor-text">
-                <Image src={cardIcon} alt="Cursor Icon" style={{width:'20px',height:'20px'}}/>
+                <Image src={cardIcon} alt="Cursor Icon" style={{width:'30px',height:'30px'}}/>
             </span>
         </div>
     )

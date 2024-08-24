@@ -1,30 +1,29 @@
 @font-face {
-    font-family: 'Stone_Serif_Semibold';
-    src: url('./Stone_Serif_Semibold.ttf');
-  }
-  
-  @font-face {
-    font-family: 'LT_Italic';
-    src: url('./LT_Italic.ttf');
-  }
-  
-  @font-face {
-    font-family: 'Caps_Bold';
-    src: url('./Caps_Bold.ttf');
-  }
-  
-  @font-face {
-    font-family: 'Matrix_Book';
-    src: url('./Matrix_Book.ttf');
-  }
-  
-  @font-face {
-    font-family: 'Small_Caps_1';
-    src: url('./Small_Caps_1.ttf');
-  }
-  
-  @font-face {
-    font-family: 'Small_Caps_2';
-    src: url('./Small_Caps_2.ttf');
-  }
-  
+  font-family: 'Stone_Serif_Semibold';
+  src: url('./Stone_Serif_Semibold.ttf');
+}
+
+@font-face {
+  font-family: 'LT_Italic';
+  src: url('./LT_Italic.ttf');
+}
+
+@font-face {
+  font-family: 'Caps_Bold';
+  src: url('./Caps_Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Matrix_Book';
+  src: url('./Matrix_Book.ttf');
+}
+
+@font-face {
+  font-family: 'Small_Caps_1';
+  src: url('./Small_Caps_1.ttf');
+}
+
+@font-face {
+  font-family: 'Small_Caps_2';
+  src: url('./Small_Caps_2.ttf');
+}
