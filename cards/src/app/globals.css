@@ -40,6 +40,8 @@
   --card-border-rgb: 131, 134, 135;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -141,15 +143,20 @@ body {
 }
 
 #CardNameText{
-  font-family: 'Small_Caps_1';
+  /* font-family: 'Small_Caps_1'; */
+  font-family: "Song Myung", serif;
+  font-weight: 600;
 }
 
 #CardDescText{
-  font-family: 'LT_Italic';  
+  /* font-family: 'LT_Italic';   */
+  font-family: "Song Myung", serif;
+  font-weight: 600;
 }
 
 #CardTypeText{
   font-family: 'Caps_Bold';
+  /* font-family: "Song Myung", serif; */
 }
 
 .CardPrism{

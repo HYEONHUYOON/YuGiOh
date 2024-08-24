@@ -18,6 +18,8 @@ async function getCardData() {
 const Home = async() => {
   const data = await getCardData()
 
+  console.log(data)
+
   return (
     <MainView cardData={data.data[0]}/>
   );

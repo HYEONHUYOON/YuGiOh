@@ -69,63 +69,90 @@ const MainView = ({cardData} :MainViewProps) => {
     const attributeImg : StaticImageData  = YugiohAttribute[cardData.attribute]
 
     return (
-        <Grid2 container spacing={4} sx={{width:'100vw',height:'100vh'}}>
-            <Grid2 xs={12} md={6} spacing={2} sx={{height:'100%',adding:'20px,',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:'10px'}}>
-                <Box sx={{width:'100%',display:'flex',alignItems:'center',justifyContent:'center',gap:'10px'}}>
-                    <Typography id='CardNameText' className="view" variant='h5' fontWeight={'500'} color={'white'} whiteSpace={'nowrap'}>{cardData.name}</Typography>
-                    <Image src={attributeImg} alt="level" width={24} height={24}/>        
-                </Box>
+        <Box sx={{width:'100vw',height:'100vh'}}>
+            <Grid2 container sx={{height:'20%'}}>
+                <Grid2 xs={12} md={4}>
+                
+                </Grid2>
 
-                <Box sx={{width:'200px',display:'flex',alignItems:'center',justifyContent:'flex-end',gap:'4px'}}>
-                    {
-                        Array.from({length:cardData.level}).map((_,index) => (
-                            <Image key={index} src={Star} alt="level" width={14} height={14}/>
-                        ))
-                    }
-                </Box>
+                <Grid2 xs={12} md={4}>
 
-                <Box sx={{display:'flex',alignItems:'center',justifyContent:'center'}}>
-                    <Image src={cardData.card_images[0].image_url_cropped} alt="img" width={186} height={189} style={{border:'8px solid #494f6d',boxShadow:'0px 0px 10px #45454e'}}/>
-                </Box>
+                </Grid2>
 
-                <Box sx={{width:'240px',display:'flex',alignItems:'center',justifyContent:'flex-start'}}>
-                    <Typography id='CardTypeText' className="view" variant='caption' color={'white'}>[{cardData.typeline[0]}/{cardData.typeline[1]}]</Typography>
-                </Box>
-
-                <Box sx={{width:'240px',display:'flex',alignItems:'center',justifyContent:'center'}}>
-                    <Typography id='CardDescText' className="view" variant='caption' color={'white'}>{cardData.desc}</Typography>
-                </Box>
-
-                <Box sx={{width:'240px',display:'flex',alignItems:'center',justifyContent:'flex-end'}}>
-                    <Typography id='CardTypeText' className="view" variant='caption' color={'white'}> ATK/{(cardData.atk).toString()} DEF/{(cardData.def).toString()} </Typography>
-                </Box>
+                <Grid2 xs={12} md={4}>
+                    
+                </Grid2>  
             </Grid2>
 
-            <Grid2 xs={12} md={6} spacing={2} sx={{height:'100%',adding:'20px,',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:'10px'}}>
-            {/* {cardData.card_images.map((img:CardImageType) => {
-                return(
-                    <Grid2 xs sx={{display:'flex',alignItems:'center',justifyContent:'center'}}>
-                        <Image key={img.image_url_small} src={img.image_url} alt="img" width={164} height={242}/>
-                    </Grid2>
-                )
-            })} */}
-                <Box sx={{width:'100%',display:'flex',alignItems:'center',justifyContent:'center',padding:'30px 0px'}}>
-                    <Card src={cardData.card_images[imgIndex].image_url} size={20}/> 
-                </Box>
-                <Box sx={{display:'flex',alignItems:'center',justifyContent:'center',gap:'0px'}}>
-                    {
-                        Array.from({length:cardData.card_images.length}).map((_,index) => (
-                            <Radio
-                                size="small"
-                                key={index}
-                                checked = {index===imgIndex}
-                                onChange={() => {setImgIndex(index)}}
-                            />
-                        ))
-                    }
-                </Box>
+            <Grid2 container sx={{height:'60%'}}>
+                <Grid2 xs={12} md={4} spacing={2} sx={{height:'100%',padding:'30px',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:'10px'}}>
+                    <Box sx={{width:'100%',display:'flex',alignItems:'center',justifyContent:'center',gap:'10px'}}>
+                        <Typography id='CardNameText' className="view" variant='h5' fontWeight={'500'} color={'white'} whiteSpace={'nowrap'}>{cardData.name}</Typography>
+                        <Image src={attributeImg} alt="level" width={24} height={24}/>        
+                    </Box>
+
+                    <Box sx={{width:'100%',display:'flex',alignItems:'center',justifyContent:'flex-end',gap:'4px'}}>
+                        {
+                            Array.from({length:cardData.level}).map((_,index) => (
+                                <Image key={index} src={Star} alt="level" width={14} height={14}/>
+                            ))
+                        }
+                    </Box>
+
+                    <Box sx={{display:'flex',alignItems:'center',justifyContent:'center'}}>
+                        <Image src={cardData.card_images[0].image_url_cropped} alt="img" width={50} height={52} style={{border:'1px solid #494f6d',boxShadow:'0px 0px 10px #45454e'}}/>
+                    </Box>
+
+                    <Box sx={{width:'100%',display:'flex',alignItems:'center',justifyContent:'flex-start'}}>
+                        <Typography id='CardTypeText' className="view" variant='caption' color={'white'}>[{cardData.typeline[0]}/{cardData.typeline[1]}]</Typography>
+                    </Box>
+
+                    <Box sx={{width:'100%',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                        <Typography id='CardDescText' className="view" variant='caption' fontSize={'16px'} color={'white'}>{cardData.desc}</Typography>
+                    </Box>
+
+                    <Box sx={{width:'100%',display:'flex',alignItems:'center',justifyContent:'flex-end'}}>
+                        <Typography id='CardTypeText' className="view" variant='caption' color={'white'}> ATK/{(cardData.atk).toString()} DEF/{(cardData.def).toString()} </Typography>
+                    </Box>
+                </Grid2>
+
+                <Grid2 xs={12} md={4}>
+                    <Box sx={{width:'100%',height:'100%',display:'flex',alignItems:'center',justifyContent:'center',padding:'30px 0px'}}>
+                        <Card src={cardData.card_images[imgIndex].image_url} size={20}/> 
+                    </Box>
+                    {/* <Box sx={{display:'flex',alignItems:'center',justifyContent:'center',gap:'0px'}}>
+                        {
+                            Array.from({length:cardData.card_images.length}).map((_,index) => (
+                                <Radio
+                                    size="small"
+                                    key={index}
+                                    checked = {index===imgIndex}
+                                    onChange={() => {setImgIndex(index)}}
+                                />
+                            ))
+                        }
+                    </Box> */}
+                </Grid2>
+
+                <Grid2 xs={12} md={4}>
+                    
+                </Grid2>  
             </Grid2>
-        </Grid2>
+
+            <Grid2 container sx={{height:'20%'}}>
+                <Grid2 xs={12} md={4}>
+                
+                </Grid2>
+
+                <Grid2 xs={12} md={4}>
+
+                </Grid2>
+
+                <Grid2 xs={12} md={4}>
+                    
+                </Grid2>  
+            </Grid2>
+        </Box>
 )
 }
 
