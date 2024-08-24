@@ -1,6 +1,6 @@
 'use client'
 
-import { Dispatch, SetStateAction, useState } from "react"
+import { Dispatch, SetStateAction, useRef, useState } from "react"
 
 import Link from "next/link"
 import Image, { StaticImageData } from "next/image"
@@ -13,6 +13,10 @@ import CardBackSide from '../../assets/images/CardBackSide.jpg'
 
 import YugiohAttribute from '../../data/yugiohAttributes'
 import YugiohCard from '../../components/YugiohCard'
+
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+gsap.registerPlugin(useGSAP);
 
 type CardSetType = {
     'set_name': string,
@@ -72,8 +76,16 @@ type CardSelectButtonProps = {
 const CardSelectButton = ({img,index,imgIndex,setImgIndex} : CardSelectButtonProps) => {
     const [hover,setHover] = useState<boolean>(false)
 
+    const containerRef = useRef<HTMLDivElement | null>(null);
+
+    useGSAP(() => {
+
+            gsap.to('.selctCardButton', { x: 360 }); // <-- automatically reverted
+
+    },{ dependencies: [hover], scope: containerRef, revertOnUpdate: true }); // <-- scope is for selector text (optional)
+
     return (
-        <div onMouseEnter={() => {setHover(true)}} onMouseLeave={() => {setHover(false)}}>
+        <div ref={containerRef} className='selctCardButton' onMouseEnter={() => {setHover(true)}} onMouseLeave={() => {setHover(false)}}>
             <Image onClick={() => {setImgIndex(index)}} src={(imgIndex === index) || hover ? img.image_url : CardBackSide} alt="img" width={35.4} height={51.6}/> 
         </div>  
     )
