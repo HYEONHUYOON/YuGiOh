@@ -8,7 +8,6 @@ type CardPropsType = {
 };
 
 const Card = ({src, size} : CardPropsType) => {
-
     useEffect(() => {
         const cardContainer = document.querySelector('.cardContainer') as HTMLElement;
         const cardPrism = document.querySelector('.CardPrism') as HTMLElement;
