@@ -86,7 +86,14 @@ const CardSelectButton = ({img,index,imgIndex,setImgIndex} : CardSelectButtonPro
 
     return (
         <div ref={containerRef} className='selctCardButton' onMouseEnter={() => {setHover(true)}} onMouseLeave={() => {setHover(false)}}>
-            <Image onClick={() => {setImgIndex(index)}} src={(imgIndex === index) || hover ? img.image_url : CardBackSide} alt="img" width={35.4} height={51.6}/> 
+            <Image 
+                onClick={() => {setImgIndex(index)}} 
+                src={(imgIndex === index) || hover ? img.image_url : CardBackSide} 
+                alt="img" 
+                width={35.4} 
+                height={51.6}
+                style={{transform: (imgIndex === index) || hover ? 'rotateY(360deg)' : '', transition : 'all 0.5s'}}
+            /> 
         </div>  
     )
 }
@@ -100,7 +107,7 @@ const MainView = ({cardData} :MainViewProps) => {
     const attributeImg : StaticImageData  = YugiohAttribute[cardData.attribute]
 
     return (
-        <Box sx={{width:'100vw',height:'100vh'}}>
+        <Card sx={{width:'100vw',height:'100%',background:'none'}}>
             <Grid2 container sx={{height:'20%'}}>
                 <Grid2 xs={12} md={4} sx={{padding:'30px'}}>
                     <Box sx={{display:'flex',alignItems:'center',justifyContent:'flex-start',gap:'20px'}}>
@@ -174,7 +181,7 @@ const MainView = ({cardData} :MainViewProps) => {
                     
                 </Grid2>  
             </Grid2>
-        </Box>
+        </Card>
 )
 }
 

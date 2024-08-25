@@ -8,6 +8,8 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { ThemeProvider } from '@mui/material'
 import { theme } from '@/styles/theme'
 
+import '../assets/icons/generated-icons.css'
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

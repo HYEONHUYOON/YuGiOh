@@ -180,7 +180,6 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: radial-gradient(circle, rgb(97 162 204), rgb(32 26 91));
 }
 
 a {
