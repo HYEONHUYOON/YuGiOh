@@ -8,11 +8,11 @@ import Image, { StaticImageData } from "next/image"
 import { Box, Card, Grid, Icon, IconButton, Radio, Typography } from "@mui/material"
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
 
-import Star from '../../assets/icons/Starball_Red.svg.png'
-import CardBackSide from '../../assets/images/CardBackSide.jpg'
+import Star from '../../../assets/icons/Starball_Red.svg.png'
+import CardBackSide from '../../../assets/images/CardBackSide.jpg'
 
-import YugiohAttribute from '../../data/yugiohAttributes'
-import YugiohCard from '../../components/YugiohCard'
+import YugiohAttribute from '../../../data/yugiohAttributes'
+import YugiohCard from '../../../components/YugiohCard'
 
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -87,13 +87,13 @@ const CardSelectButton = ({img,index,imgIndex,setImgIndex} : CardSelectButtonPro
     return (
         <div ref={containerRef} className='selctCardButton' onMouseEnter={() => {setHover(true)}} onMouseLeave={() => {setHover(false)}}>
             <button onClick={() => {setImgIndex(index)}} style={{background:'none',border:'none'}}>
-            <Image  
-                src={(imgIndex === index) || hover ? img.image_url : CardBackSide} 
-                alt="img" 
-                width={35.4} 
-                height={51.6}
-                style={{transform: (imgIndex === index) || hover ? 'rotateY(360deg)' : '', transition : 'all 0.5s',zIndex:'100'}}
-            /> 
+                <Image  
+                    src={(imgIndex === index) || hover ? img.image_url : CardBackSide} 
+                    alt="img" 
+                    width={35.4} 
+                    height={51.6}
+                    style={{transform: (imgIndex === index) || hover ? 'rotateY(360deg)' : '', transition : 'all 0.5s',zIndex:'100'}}
+                /> 
             </button>
         </div>  
     )

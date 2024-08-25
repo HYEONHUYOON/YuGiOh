@@ -60,7 +60,7 @@ const YugiohCard = ({src, size} : CardPropsType) => {
             
             <Box className='CardTextPrism' sx={{width:'220px',height:'26px',position:'absolute',top:'14px',left:'13px',zIndex:'200',filter:'url(#blackToWhite)'}}/>
 
-            <Image src={isFlipped ? CardBackSide : src} alt="img" width={246} height={363}/> 
+            <Image src={isFlipped ? CardBackSide : src} alt="img" width={246} height={363} style={{boxShadow:'0px 0px 50px black'}}/> 
         </Box>
     )
 }

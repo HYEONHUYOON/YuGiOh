@@ -13,9 +13,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-    const [hover,setHover] = useState<boolean>(false)
     const [play,setPlay] = useState<boolean>(false)
     const [audio,setAudio] = useState<HTMLAudioElement>()
+    const [scroll,setScroll] = useState<number>(0);
 
     const musicPlayHandler = () => {
         if(audio){
@@ -35,8 +35,20 @@ export default function RootLayout({
         }
     }
 
+    const onScroll = () => {
+        console.log(window.screenY)
+        setScroll(window.screenY)
+    }
+
     useEffect(() => {
+        // 유희왕 op 등록
         setAudio(new Audio(ep1_op));
+
+        window.addEventListener('scroll',onScroll)
+
+        return () => {
+            window.removeEventListener('scroll',onScroll)
+        }
     }, []);
 
     return (
@@ -45,12 +57,12 @@ export default function RootLayout({
                 sx={{
                     width:'100vw',height:'40px',
                     background:'none', padding:'4px 4px',
-                    // position:hover? 'absolute' : 'absolute',
-                    boxShadow:'0px 1px 20px rgb(32 26 91)',
-                    display:'flex',alignItems:'center',justifyContent:'space-between'
+                    boxShadow: scroll === 0 ? '' : '0px 1px 20px rgb(32 26 91)',
+                    position: scroll === 0 ? '' : 'absolute',
+                    display:'flex',alignItems:'center',justifyContent:'space-between',
                 }}
             >
-                <IconButton>
+                <IconButton href='/yugioh'>
                     <Avatar variant='circular' sx={{width:'30px',height:'30px'}}>
                         <Image src={puzzle} alt="puzzle" width={24} height={24}/>
                     </Avatar>
@@ -65,8 +77,8 @@ export default function RootLayout({
                     <source src={ep1_op} type="audio/mp3" style={{background:'none'}}/>
                 </Box>
             </Card>
-            <div style={{height: hover ? 'calc(100% - 40px)' : 'calc(100% - 40px)',transition:'all 1s'}}>
-            {children}
+            <div style={{height: scroll === 0 ? 'calc(100% - 40px)' : 'calc(100% - 40px)',transition:'all 1s'}}>
+                {children}
             </div>
         </Box>
     );
