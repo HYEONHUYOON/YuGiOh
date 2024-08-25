@@ -5,7 +5,7 @@ import { Dispatch, SetStateAction, useRef, useState } from "react"
 import Link from "next/link"
 import Image, { StaticImageData } from "next/image"
 
-import { Box, Card, Grid, IconButton, Radio, Typography } from "@mui/material"
+import { Box, Card, Grid, Icon, IconButton, Radio, Typography } from "@mui/material"
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2"
 
 import Star from '../../assets/icons/Starball_Red.svg.png'
@@ -86,14 +86,15 @@ const CardSelectButton = ({img,index,imgIndex,setImgIndex} : CardSelectButtonPro
 
     return (
         <div ref={containerRef} className='selctCardButton' onMouseEnter={() => {setHover(true)}} onMouseLeave={() => {setHover(false)}}>
-            <Image 
-                onClick={() => {setImgIndex(index)}} 
+            <button onClick={() => {setImgIndex(index)}} style={{background:'none',border:'none'}}>
+            <Image  
                 src={(imgIndex === index) || hover ? img.image_url : CardBackSide} 
                 alt="img" 
                 width={35.4} 
                 height={51.6}
-                style={{transform: (imgIndex === index) || hover ? 'rotateY(360deg)' : '', transition : 'all 0.5s'}}
+                style={{transform: (imgIndex === index) || hover ? 'rotateY(360deg)' : '', transition : 'all 0.5s',zIndex:'100'}}
             /> 
+            </button>
         </div>  
     )
 }
@@ -107,8 +108,19 @@ const MainView = ({cardData} :MainViewProps) => {
     const attributeImg : StaticImageData  = YugiohAttribute[cardData.attribute]
 
     return (
-        <Card sx={{width:'100vw',height:'100%',background:'none'}}>
-            <Grid2 container sx={{height:'20%'}}>
+        <Card sx={{width:'100vw',height:'100%',background:'none',position:'relative'}}>
+            <Icon 
+                className="spiral" 
+                sx={{
+                    width:'800px !important',
+                    height:'800px !important',
+                    background:'radial-gradient(circle, rgb(97 162 204), rgb(32 26 91))',
+                    position:'absolute',left:'50%',top:'50%',
+                    transform:'translate(-50%,-50%)',zIndex:'0'
+                }}
+            />
+            
+            <Grid2 container sx={{height:'20%',zIndex:'10'}}>
                 <Grid2 xs={12} md={4} sx={{padding:'30px'}}>
                     <Box sx={{display:'flex',alignItems:'center',justifyContent:'flex-start',gap:'20px'}}>
                         <Image src={cardData.card_images[0].image_url_cropped} alt="img" width={40} height={40} style={{border:'1px solid #494f6d',boxShadow:'0px 0px 10px #45454e',borderRadius:'90px'}}/>
@@ -125,8 +137,8 @@ const MainView = ({cardData} :MainViewProps) => {
                 </Grid2>  
             </Grid2>
 
-            <Grid2 container sx={{height:'60%'}}>
-                <Grid2 xs={12} md={4} sx={{height:'100%',padding:'30px',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'flex-start',gap:'6px'}}>
+            <Grid2 container sx={{height:'60%',zIndex:'10'}}>
+                <Grid2 xs={12} md={4} sx={{height:'100%',padding:'30px',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'flex-start',gap:'6px',zIndex:'100'}}>
                     <Box sx={{width:'100%',display:'flex',alignItems:'center',justifyContent:'flex-start',gap:'10px'}}>
                         <Typography id='CardNameText' className="view" variant='subtitle1' fontWeight={'600'} color={'white'} whiteSpace={'nowrap'}>{cardData.name}</Typography>
                         <Image src={attributeImg} alt="level" width={20} height={20}/>        
@@ -150,7 +162,7 @@ const MainView = ({cardData} :MainViewProps) => {
                     </Box>
                 </Grid2>
 
-                <Grid2 xs={12} md={4}>
+                <Grid2 xs={12} md={4} sx={{zIndex:'10'}}>
                     <Box sx={{width:'100%',height:'80%',display:'flex',alignItems:'center',justifyContent:'center',padding:'30px 0px'}}>
                         <YugiohCard src={cardData.card_images[imgIndex].image_url} size={20}/> 
                     </Box>
