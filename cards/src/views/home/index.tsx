@@ -150,7 +150,7 @@ const MainView = ({cardData} :MainViewProps) => {
                     <Box sx={{display:'flex',alignItems:'center',justifyContent:'center',gap:'4px'}}>
                         {
                             cardData.card_images.map((img,index) => (
-                                <CardSelectButton img={img} index={index} imgIndex={imgIndex} setImgIndex={setImgIndex}/>   
+                                <CardSelectButton key={(img.id).toString()} img={img} index={index} imgIndex={imgIndex} setImgIndex={setImgIndex}/>   
                             ))
                         }
                     </Box>

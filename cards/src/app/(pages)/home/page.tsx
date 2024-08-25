@@ -6,7 +6,7 @@ import MainView from "@/views/home";
 
 async function getCardData() {
   // Vars
-  const res = await fetch('http://localhost:3000/api/yugioh/')
+  const res = await fetch('http://localhost:3000/api/yugioh/',{cache:'no-cache'})
 
   if (!res.ok) {
     throw new Error('Failed to fetch data')
@@ -17,8 +17,6 @@ async function getCardData() {
 
 const Home = async() => {
   const data = await getCardData()
-
-  console.log(data)
 
   return (
     <MainView cardData={data.data[0]}/>

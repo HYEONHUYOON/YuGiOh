@@ -13,4 +13,13 @@ export const theme = createTheme({
             secondary : '#c0c0c0', 
         }
     },
+    components: {
+        MuiSkeleton: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: '#b2b2b2', // 원하는 배경색으로 설정
+                },
+            },
+        },
+    },
 });
